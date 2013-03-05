@@ -1,4 +1,3 @@
-[~/Dropbox/src/javascript/PLgrado/ini(master)]$ cat global.css
 html *
 {
    font-size: large; 
@@ -31,11 +30,11 @@ table.center { margin-left:auto; margin-right:auto; }
 tr.error       { background-color: red; }
 pre.output   { background-color: white; }
 span.repeated { background-color: red }
-span.header { ________________: ____ }
-span.comments { ________________: ______ }
-span.blanks { ________________: _____ }
-span.nameEqualValue { ________________: ____ }
-span.error { ________________: ___ }
+span.header { background-color: #FACC2E }
+span.comments { background-color: #D8D8D8 }
+span.blanks { background-color: #E2A9F3 }
+span.nameEqualValue { background-color: #04B404 }
+span.error { background-color: #8A0829 }
 
 body
 {
