@@ -60,7 +60,6 @@ function lexer(input) {
     }
     else if (m = comments.exec(input)) {
       input = input.substr(m.index+m.lastIndex);
-      alert(input);
       input.lastIndex;// avanzemos en input
     }
     else if (m = nameEqualValue.exec(input)) {
