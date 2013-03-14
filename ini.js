@@ -16,8 +16,8 @@ function calculate(evt) {
       var pretty = tokensToString(tokens);
       
       out.className = 'unhidden';
-      initialinput.value = contents;
-      finaloutput.value = pretty;
+      initialinput.innerHTML = contents;
+      finaloutput.innerHTML = pretty;
     }
     r.readAsText(f); // Leer como texto
   } else { 
@@ -51,24 +51,24 @@ function lexer(input) {
 
   while (input != '') {
     if (m = blanks.exec(input)) {
-      input = input.substr(m.index+m.lastIndex);
-      out.push({ type : input, match: m });	// type : ________
+      input = input.substr(m.index+m[0].length);
+      out.push({ type : "blanks", match: m[0] });	// type : ________
     }
     else if (m = iniheader.exec(input)) {
-      input = input.substr(m.index+m.lastIndex);
-      input.lastIndex;// avanzemos en input
+      input = input.substr(m.index+m[0].length);
+      out.push({ type : "iniheader", match: m[0] });
     }
     else if (m = comments.exec(input)) {
-      input = input.substr(m.index+m.lastIndex);
-      input.lastIndex;// avanzemos en input
+      input = input.substr(m.index+m[0].length);
+      out.push({ type : "comments", match: m[0] });
     }
     else if (m = nameEqualValue.exec(input)) {
-      input = input.substr(m.index+m.lastIndex);
-      input.lastIndex;// avanzemos en input
+      input = input.substr(m.index+m[0].length);
+      out.push({ type : "nameEqualValue", match: m[0] });
     }
     else if (m = any.exec(input)) {
-      input.lastIndex;// avanzemos en input
-      input = '';
+      input = input.substr(m.index+m[0].length);
+      out.push({ type : "any", match: m[0] });
     }
     else {
       alert("Fatal Error!"+substr(input,0,20));
